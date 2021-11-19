@@ -109,7 +109,7 @@ input[type=password]{
 <!---------------------------navbar-------------------------------->
    
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top ">
-      <div class="container">
+      <div class="container p-3">
         <a href="#" class="navbar-brand">Business Marketing messages</a>
 
         <button class="navbar-toggler"

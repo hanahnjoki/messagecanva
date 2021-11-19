@@ -14,8 +14,8 @@
 <body>
 <!-----------------navbar----------------->
    
-  <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top ">
-      <div class="container">
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top  ">
+      <div class="container p-3">
         <a href="#" class="navbar-brand">Business Marketing messages</a>
 
         <button class="navbar-toggler"
@@ -65,7 +65,7 @@
         <h1 class="title text-center ">What we do</h1>
         <p>We offer businesses marketing messages for billboards, social media account updates, put on posters and other places you ,might be in need of a great business text. We work with our pool of vetted and professional authors to carry out the tasks and guarantee quality in terms of what you receive. Try our services today.</p>
     
-          <div class="row padding">
+          <div class="row  ">
                                                <?php     require_once("getpost.php"); 
                                                           getMainPosts();
                                                ?>     

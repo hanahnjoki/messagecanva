@@ -265,6 +265,7 @@ input[type=submit]:hover {
   margin-top: 3px;
   
 }
+ 
 
 /* Clear floats after the columns */
 .row:after {
@@ -272,4 +273,5 @@ input[type=submit]:hover {
   display: table;
   clear: both;
 }
-/*-------------------------loginform----------------------*/
+/*-------------------------getmainposts----------------------*/
+ 

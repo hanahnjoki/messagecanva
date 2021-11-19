@@ -57,9 +57,9 @@ include("function.php");
 </nav><hr>
 
 <!---------------------------------inserting posts header--------------------------------->
-        <section class=" text-dark text-center" style="background-image: linear-gradient(to right,rgb(250, 250, 8), white);" >    <div class="container  p-5">
+ <section class=" text-dark text-center" style="background-image: linear-gradient(to right,rgb(250, 250, 8), white);" >    <div class="container  pt-5   ">
                 
-                    <div class="row">
+                    <div class="row py-4">
                         <div class="col">
                             
                                     <p style="font-size:xx-large;"> Insert message</p>
@@ -71,14 +71,15 @@ include("function.php");
 <!---------------------------------inserting posts form--------------------------------->
 <section class="text-info bg-light align-items-center"> 
     <div class="container">
-       <form method="POST"  >
-                <input type="hidden" name="author" value="1" > 
+       <form method="POST"  enctype="multipart/form-data"  > 
+           <input type="hidden" id="author" name="author">
+               
                 <div class="row text-center  ">
                         <div class="col-25">
                             <label for="title">Title</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="title" name="title" >
+                            <input type="text" id="title" name="title" required >
                         </div>
                 </div>
                 <div class="row text-center ">
@@ -86,7 +87,7 @@ include("function.php");
                             <label for="seo_title">Seo_title</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="seo_title" name="seo" >
+                            <input type="text" id="seo_title" name="seo" required >
                         </div>
                 </div>
                 <div class="row text-center">
@@ -94,7 +95,7 @@ include("function.php");
                             <label for="category">Category</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="category" name="category" >
+                            <input type="text" id="category" name="category" required>
                         </div>
                 </div>
                 <div class="row text-center">
@@ -107,12 +108,20 @@ include("function.php");
                        
                     </div>
                 </div>
-                <div class="row text-center ">
+                <div class="row text-center  ">
+                        <div class="col-25">
+                            <label for="author">Author</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="author" name="author" required >
+                        </div>
+                </div>
+             <div class="row text-center ">
                         <div class="col-25">
                             <label for="seo_title">Upload Image</label>
                         </div>
                         <div class="col-75">
-                        <input type="file" name="image"  enctype="multipart/form-data">
+                        <input type="file" name="image" >
                         </div>
                 </div>
                    <br>            
@@ -180,23 +189,24 @@ include("function.php");
 <?php
 
  if(   isset($_POST['content']) ){
-
+    
+   
     $title = $_POST['title'];
-    $seo = $_POST['seo'];
-    $content=$_POST['content'];
+    $seo = $_POST['seo'];    
     $category = $_POST['category'];//Example 1 2 3
+    $content=$_POST['content'];
     $author = $_POST['author'];
-    $image = $_POST['image'];
-    $file = $_FILES['image']['name'];
+    //$image = $_POST['image'];
+   // $file = $_FILES['image']['name'];
     
     
     $db = mysqli_connect("localhost", "admin", "0000", "messages");
 
-    $query = "INSERT INTO post (title, seo_title, content, image, author) 
-    VALUES ('$title','$seo','$content','$file','$author')";
+    $query = "INSERT INTO post (title, seo, category, content, author) 
+    VALUES ('$title', '$seo','$category','$content', '$author')";
 
     
-    move_uploaded_file($_FILES['image'] , ['name'], "$file");
+  
 
     mysqli_query($db, $query);
 

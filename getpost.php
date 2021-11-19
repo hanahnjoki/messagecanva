@@ -5,43 +5,31 @@
    
        
         $db = mysqli_connect("localhost", "admin", "0000", "messages");
-        $query ="SELECT * FROM post ORDER BY date DESC LIMIT 10";
+        $query ="SELECT * FROM post ORDER BY date DESC LIMIT 100";
         $result = mysqli_query($db, $query);
         
          
-        while($row = mysqli_fetch_array($result)){
-            $query = "SELECT name FROM category
+                   while($row = mysqli_fetch_array($result)){
+                        $query = "SELECT name FROM category";
 
-                          INNER JOIN has_category ON category.id = has_category.category
+                            
 
-            WHERE has_category.post =".$row['Id'];
-
-        $cat_result = mysqli_query($db, $query);
-        $categories = ""; 
-
-        while($category= mysqli_fetch_array($cat_result)){
-
-            $categories .= '<span class="badge badge-primary fs-5">' . 
-            $category['name'].'</span>';
-        }
-
-            echo '
+         echo '
+              <div class = "container col-lg-6">
             
-            <div class="row padding">
-                      <div class="col-lg-4">
-                            <div class="box p-4 ">
-                                <img src="img/'.$row['Id'].'.jpg" alt="'.$row['title'].'">
-                                <h5><a href="#" class="text-dark"></a>'.$row['title'].'</h5>                
+                    <div class="row p-2 " >
+                            <div class="col-45 m-2  shadow ">
                                 
+                                    <h2 class="fs-5 font-weight-bold mb-2">'.$row['content'].'</h2> 
+                                    <h2 class="fs-5 font-weight-bold mb-2">'.$row['author'].'</h2> 
+                    
+                                                
+                                        
                             </div>
-                            <div class="d-flex justify-content-between">
-                            <p> '. substr($row['date'],0,10).'</p>
-                            <p> '.$categories.'</p>
-
-                            </div>
-                        </div>
-            </div>
-             ';
+                   </div>
+            </div>';
+          
+          
         }
         error_reporting(E_ALL);
    }

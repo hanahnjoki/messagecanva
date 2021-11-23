@@ -65,7 +65,7 @@
         <h1 class="title text-center ">What we do</h1>
         <p>We offer businesses marketing messages for billboards, social media account updates, put on posters and other places you ,might be in need of a great business text. We work with our pool of vetted and professional authors to carry out the tasks and guarantee quality in terms of what you receive. Try our services today.</p>
     
-          <div class="row  ">
+          <div class="row">
                                                <?php     require_once("getpost.php"); 
                                                           getMainPosts();
                                                ?>     

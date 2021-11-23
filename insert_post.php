@@ -87,7 +87,7 @@ include("function.php");
                             <label for="seo_title">Seo_title</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="seo_title" name="seo" required >
+                            <input type="text" id="seo_title" name="seo_title" required >
                         </div>
                 </div>
                 <div class="row text-center">
@@ -192,7 +192,7 @@ include("function.php");
     
    
     $title = $_POST['title'];
-    $seo = $_POST['seo'];    
+    $seo = $_POST['seo_title'];    
     $category = $_POST['category'];//Example 1 2 3
     $content=$_POST['content'];
     $author = $_POST['author'];
@@ -202,19 +202,15 @@ include("function.php");
     
     $db = mysqli_connect("localhost", "admin", "0000", "messages");
 
-    $query = "INSERT INTO post (title, seo, category, content, author) 
-    VALUES ('$title', '$seo','$category','$content', '$author')";
-
-    
-  
-
+    $query = "INSERT INTO post (title, seo_title, content, author) 
+    VALUES ('$title', '$seo','$content', '$author')";
     mysqli_query($db, $query);
 
     $query = "SELECT id FROM post WHERE seo_title='$seo'";
     $result = mysqli_query($db, $query);
 
     $row = mysqli_fetch_array($result);
-    echo "ID is " . $row[0];
+     echo "ID is " . $row[0];
 
     $post_id = $row[0];
     $category_array = explode(" ",$category); //[1,2,3, 4]
@@ -240,7 +236,7 @@ include("function.php");
                  </script>';
 
     }
- 
+    error_reporting(E_ALL);
            
 }
 ?> 

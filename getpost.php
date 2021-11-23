@@ -20,10 +20,11 @@
                     <div class="row p-2 " >
                             <div class="col-45 m-2  shadow ">
                                 
-                                    <h2 class="fs-5 font-weight-bold mb-2">'.$row['content'].'</h2> 
-                                    <h2 class="fs-5 font-weight-bold mb-2">'.$row['author'].'</h2> 
-                    
-                                                
+                                    <div class="copy-text"
+                                        <h2 class="fs-5 font-weight-bold mb-2">'.$row['content'].'</h2> 
+                                        <button><i class="fa fa-clone"></i></button>      
+                                   </div>
+                                    <h2 class="fs-5 font-weight-bold mb-2">'.$row['author'].'</h2>     
                                         
                             </div>
                    </div>
@@ -34,7 +35,7 @@
         error_reporting(E_ALL);
    }
  
-
+   
  
 
 ?>

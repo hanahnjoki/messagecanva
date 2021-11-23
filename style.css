@@ -274,4 +274,53 @@ input[type=submit]:hover {
   clear: both;
 }
 /*-------------------------getmainposts----------------------*/
- 
+ .copy-text{
+   position:absolute;
+   padding: 10px;
+   background: #ffff;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   display: flex;
+ }
+ .copy-text button{
+   padding:10px;
+   background: #5784f5;
+   color: #fff;
+   font-size: 18px;
+   border: none;
+   outline: none;
+   border-radius: 10px;
+   cursor: pointer;
+
+ }
+ .copy-text button:active{
+   background: #809ce2;
+ }
+ .copy-text button:before{
+   content:"copied";
+   position: absolute;
+   top: 45px;
+   right: 0px;
+   background: #5c81dc;
+   padding: 8px 10px;
+   border-radius: 20px;
+   font-size: 15px;
+   display: none;
+
+ }
+ .copy-text button:after{
+   content: "";
+   position: absolute;
+   top: 10px;
+   right: 25px;
+   width:10px;
+   height: 10px;
+   background: #5c81dc;
+   transform:rotate(45deg);
+   display:none;
+
+ }
+ .copy-text button:before,
+ .copy-text button:after{
+   display:block;
+ }
